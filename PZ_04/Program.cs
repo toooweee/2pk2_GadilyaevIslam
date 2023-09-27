@@ -62,8 +62,8 @@
             int j = 40;
             for(int i = 4; i < j; i++)
             {
-                Console.WriteLine(i);
-                Console.WriteLine(j);
+                Console.WriteLine("Значение i = " + i);
+                Console.WriteLine("Значение j = " + j);
                 j--;
                 if(i - j == 13)
                 {
