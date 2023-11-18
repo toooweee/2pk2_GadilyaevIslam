@@ -36,6 +36,9 @@ namespace PZ_08
                 }
                 Console.WriteLine();
             }
+            double[][] copyArr2 = arr;
+            double[][] copyArr = arr;
+            double[][] copyArr3 = arr;
 
             // 3
 
@@ -57,9 +60,7 @@ namespace PZ_08
 
             // 4 
 
-            Console.WriteLine("Номер 4");
-
-            double[][] copyArr = arr;
+            Console.WriteLine("Номер 4");            
 
             for (int i = 0; i < 10; i++)
             {
@@ -75,25 +76,25 @@ namespace PZ_08
             Console.WriteLine();
 
             // 5
-            Console.WriteLine("Номер 5 ");
+            Console.WriteLine("Номер 5 ");       
             int forFirst = 0;
             int forMax = 0;
             int[] maxElements = new int[10];
             int[] FirstNum = new int[10];
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < copyArr2.Length; i++)
             {
-                for (int j = 0; j < arr[i].Length; j++)
+                for (int j = 0; j < copyArr2[i].Length; j++)
                 {
-                    if (arr[i][j] == FirstNum[forFirst])
+                    if (copyArr2[i][j] == FirstNum[forFirst])
                     {
-                        arr[i][j] = maxElements[forFirst];
+                        copyArr2[i][j] = maxElements[forFirst];
 
                     }
-                    else if (arr[i][j] == maxElements[forMax])
+                    else if (copyArr2[i][j] == maxElements[forMax])
                     {
-                        arr[i][j] = FirstNum[forMax];
+                        copyArr2[i][j] = FirstNum[forMax];
                     }
-                    Console.Write(arr[i][j] + " ");
+                    Console.Write(copyArr2[i][j] + " ");
                 }
                 forFirst++;
                 forMax++;
@@ -104,17 +105,17 @@ namespace PZ_08
 
             Console.WriteLine("Номер 6");
 
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < copyArr3.Length; i++)
             {
-                Array.Reverse(arr[i]);
+                Array.Reverse(copyArr3[i]);
             }
 
             // Выводим реверсированный зубчатый массив
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < copyArr3.Length; i++)
             {
-                for (int j = 0; j < arr[i].Length; j++)
+                for (int j = 0; j < copyArr3[i].Length; j++)
                 {
-                    Console.Write(arr[i][j] + " ");
+                    Console.Write(copyArr3[i][j] + " ");
                 }
                 Console.WriteLine();
             }
