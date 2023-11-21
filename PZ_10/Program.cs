@@ -1,13 +1,14 @@
-﻿namespace PZ_09
+﻿namespace PZ_10
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите ненормированную строку:");
+            Console.WriteLine("Введите ваше предложение");
             string input = Console.ReadLine();
 
-            // удаляем пробелы в начале и в конце строки
+            int count = 0; 
+
             input = input.Trim();
 
             // массив символов из строки
@@ -36,8 +37,19 @@
             }
 
             string normalString = new string(normalChars, 0, normalIndex);
+            string[] words = normalString.Split();
+            foreach (string word in words)
+            {
+            if (word[0] == 'о' && word[word.Length - 1] == 'о')
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count);
 
-            Console.WriteLine(normalString);
+               
+
+
         }
     }
 }
