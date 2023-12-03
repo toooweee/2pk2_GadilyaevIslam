@@ -26,13 +26,13 @@
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (i == j || i + j == n - 1)
+                    if  (i == n / 2 && j == n / 2)
+                    {
+                        arr[i, j] = 'о';
+                    }
+                    else if (i == j || i + j == n - 1)
                     {
                         arr[i, j] = '*';
-                    }
-                    else if (i == n / 2 && j == n / 2)
-                    {
-                        arr[i, j] = 'o';
                     }
                     else
                     {
