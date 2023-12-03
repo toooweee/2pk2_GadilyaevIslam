@@ -7,12 +7,13 @@
             try
             {
                 Console.Write("Введите целое число x (не более 100): ");
-                if (int.TryParse(Console.ReadLine(), out int x) && x > 0 && x <= 100)
+                int x = Convert.ToInt32(Console.ReadLine());
+                if (x > 0 && x <= 100)
                 {
                     string filePath = "output.txt"; // Имя файла, куда будем записывать результат
                     using (StreamWriter writer = new StreamWriter(filePath))
                     {
-                        // Формирование строк с символами '*'
+                        // Формирование звездочек
                         for (int i = 1; i <= x; i++)
                         {
                             string line;
@@ -28,7 +29,6 @@
                             // Запись строки в файл
                             writer.WriteLine(line);
 
-                            // Вывод строки в консоль
                             Console.WriteLine(line);
                         }
 
