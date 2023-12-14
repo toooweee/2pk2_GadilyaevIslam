@@ -1,8 +1,4 @@
 ﻿using static System.Console;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 
 namespace SnakeGame
 {
@@ -15,7 +11,7 @@ namespace SnakeGame
         public static Pixel food;
         public static Pixel YOJ;
         private static int score = 0;
-        private static Timer wallsTimer;
+        public static Timer wallsTimer = new Timer(state => GenerateWalls(), null, 0, 7000);
         private static Random random = new Random();
         public static List<Pixel> walls = new List<Pixel>();
         private static List<Pixel> disappearingWalls = new List<Pixel>();
@@ -35,6 +31,7 @@ namespace SnakeGame
                         Console.Write('█');
                     }
                     else if (snake.Any(p => p.X == a && p.Y == b))
+                        // есть ли хотя бы 1 элемент в коллекции, координаты Х и У которого соответсвуют а и б
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.Write('0');
@@ -80,7 +77,7 @@ namespace SnakeGame
                     newHead.X--;
                     break;
                 case Direction.RIGHT:
-                    newHead.Y++;
+                    newHead.Y++;    
                     break;
                 case Direction.DOWN:
                     newHead.X++;
@@ -92,6 +89,7 @@ namespace SnakeGame
 
             if (newHead.X == 0 || newHead.X == width - 1 || newHead.Y == 0 || newHead.Y == height - 1 ||
                 snake.Any(p => p.X == newHead.X && p.Y == newHead.Y) || walls.Any(w => w.X == newHead.X && w.Y == newHead.Y))
+            // провреяем есть ли часть змейки на координатах (x, y).
             {
                 EndGame();
                 return;
@@ -300,7 +298,7 @@ namespace SnakeGame
             GenerateFood();
             GenerateYoj();
 
-            wallsTimer = new Timer(state => GenerateWalls(), null, 0, 7000);
+            
             isGameRunning = true;
 
             while (isGameRunning)
